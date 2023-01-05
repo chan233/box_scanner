@@ -68,7 +68,7 @@ curl --url "$DOMAIN" | grep -E '(href|src)'
 
 function port_scan(){
 
-if [[ $FULLSCAN == 'f' ]]
+if [[ $FULLSCAN = 'f' ]]
 then
     echo "[+] start full tcp port scan"
     PORT=65535
@@ -85,10 +85,10 @@ done
 
 
 function main(){
-        check_input $1 $2
+        check_input $@
         get_domain
         get_url
         port_scan
 }
 
-main $1 $2
+main $@
